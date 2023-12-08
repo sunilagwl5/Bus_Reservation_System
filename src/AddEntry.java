@@ -9,6 +9,7 @@ import java.sql.*;
 
 public class AddEntry extends JInternalFrame {
 
+    
     private JLabel lblBusNo,  lblRegNo,  lblModel,  lblCapacity,  lblDOP,  lblInsuranceStatus,  lblDOI,  lblDOIE;
     private JTextField txtBusNo,  txtRegNo,  txtModel,  txtCapacity,  txtIStatus;
     private JButton btnAddNew,  btnCancel,  btnClear,  btnNext;
