@@ -1,4 +1,3 @@
-
 import java.awt.event.*;
 import java.text.*;
 import java.util.*;
@@ -11,6 +10,7 @@ public class DateButton extends JButton {
     private Date date;
 
     protected void fireActionPerformed(ActionEvent e) {
+
         Date newDate = DATE_CHOOSER.select(date);
         if (newDate == null) {
             return;
@@ -19,19 +19,23 @@ public class DateButton extends JButton {
     }
 
     public DateButton(Date date) {
+
         super(DATE_FORMAT.format(date));
         this.date = date;
     }
 
     public DateButton() {
+
         this(new Date());
     }
 
     public Date getDate() {
+
         return date;
     }
 
     public void setDate(Date date) {
+
         Date old = this.date;
         this.date = date;
         setText(DATE_FORMAT.format(date));
