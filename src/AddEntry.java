@@ -92,6 +92,30 @@ public class AddEntry extends JInternalFrame {
         btnAddNew.addActionListener(new ActionListener() {
 
 
+            /**
+             * This method is called when an action is performed on a specific event.
+             * It clears the text fields for bus number, registration number, model, capacity, and status.
+             *
+             * @param e the ActionEvent that occurred
+             * @throws NullPointerException if any of the text fields are null
+             *
+             * Example:
+             *
+             * <pre>
+             * {@code
+             *     // Assuming btnClear is a button that triggers this action
+             *     btnClear.addActionListener(new ActionListener() {
+             *         public void actionPerformed(ActionEvent e) {
+             *             txtBusNo.setText("");
+             *             txtRegNo.setText("");
+             *             txtModel.setText("");
+             *             txtCapacity.setText("");
+             *             txtIStatus.setText("");
+             *         }
+             *     });
+             * }
+             * </pre>
+             */
             public void actionPerformed(ActionEvent e) {
 
                 if (txtBusNo.getText() == null || txtBusNo.getText().equals("")) {
@@ -146,6 +170,23 @@ public class AddEntry extends JInternalFrame {
 
         btnCancel.addActionListener(new ActionListener() {
 
+            /**
+             * This method is called when an action is performed.
+             * It clears the text fields for bus number, registration number, model, capacity, and status.
+             *
+             * @param e the ActionEvent that occurred
+             * @throws NullPointerException if any of the text fields are null
+             *
+             * Example:
+             *
+             * actionPerformed(ActionEvent e) {
+             *     txtBusNo.setText("");
+             *     txtRegNo.setText("");
+             *     txtModel.setText("");
+             *     txtCapacity.setText("");
+             *     txtIStatus.setText("");
+             * }
+             */
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
@@ -153,6 +194,27 @@ public class AddEntry extends JInternalFrame {
 
         btnClear.addActionListener(new ActionListener() {
 
+            /**
+             * This method is called when an action is performed.
+             * It clears the text fields for bus number, registration number, model, capacity, and status.
+             *
+             * @param e the ActionEvent that occurred
+             * @throws NullPointerException if any of the text fields are null
+             *
+             * Example:
+             *
+             * <pre>
+             * {@code
+             * public void actionPerformed(ActionEvent e) {
+             *     txtBusNo.setText("");
+             *     txtRegNo.setText("");
+             *     txtModel.setText("");
+             *     txtCapacity.setText("");
+             *     txtIStatus.setText("");
+             * }
+             * }
+             * </pre>
+             */
             public void actionPerformed(ActionEvent e) {
                 txtBusNo.setText("");
                 txtRegNo.setText("");
