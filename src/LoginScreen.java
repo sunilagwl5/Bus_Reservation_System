@@ -82,6 +82,31 @@ public class LoginScreen extends JFrame {
         }
     }//constructor closed
 
+    /**
+     * Logs in the user with the provided username, password, and category.
+     *
+     * @throws SQLException if a database access error occurs
+     * @throws Exception if an error occurs during the login operation
+     *
+     * Example:
+     *
+     * <pre>{@code
+     * public class LoginExample {
+     *     public static void main(String[] args) {
+     *         // Create an instance of the Login class
+     *         Login login = new Login();
+     *
+     *         // Set the username, password, and category
+     *         login.txtUser.setText("username");
+     *         login.txtPasswd.setText("password");
+     *         login.cmbCat.setSelectedItem("category");
+     *
+     *         // Call the login method
+     *         login.login();
+     *     }
+     * }
+     * }</pre>
+     */
     public void login() {
         String username = txtUser.getText();
         String password = txtPasswd.getText();
@@ -107,6 +132,19 @@ public class LoginScreen extends JFrame {
         }//try catch closed
     }//Login() closed
 
+    /**
+     * Loads the MDI window based on the selected category.
+     *
+     * @throws NullPointerException if cmbCat is null
+     *
+     * Example:
+     *
+     * <pre>
+     * {@code
+     * LoadMDIWindow();
+     * }
+     * </pre>
+     */
     public void LoadMDIWindow() {
         if (cmbCat.getSelectedItem().equals("Manager")) {
             new MDIWindow().LoginManager();
@@ -119,6 +157,38 @@ public class LoginScreen extends JFrame {
 
     private class ButtonListener implements ActionListener {
 
+        /**
+         * Performs an action in response to an event.
+         *
+         * @param e the ActionEvent that triggered the action
+         * @throws NullPointerException if txtUser or txtPasswd is null
+         * @throws IllegalArgumentException if txtUser or txtPasswd is empty
+         *
+         * Example:
+         * <pre>
+         * {@code
+         * public void actionPerformed(ActionEvent e) {
+         *     if (e.getSource() == btnLogin) {
+         *         if (txtUser.getText() == null || txtUser.getText().equals("")) {
+         *             JOptionPane.showMessageDialog(null, "Enter username", "Missing field", JOptionPane.DEFAULT_OPTION);
+         *             txtUser.requestFocus();
+         *             return;
+         *         }
+         *
+         *         if (txtPasswd.getText() == null || txtPasswd.getText().equals("")) {
+         *             JOptionPane.showMessageDialog(null, "Enter password", "Missing field", JOptionPane.DEFAULT_OPTION);
+         *             txtPasswd.requestFocus();
+         *             return;
+         *         }
+         *
+         *         login();
+         *     } else if (e.getSource() == btnCancel) {
+         *         System.exit(0);
+         *     }
+         * }
+         * }
+         * </pre>
+         */
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == btnLogin) {
                 if (txtUser.getText() == null || txtUser.getText().equals("")) {
