@@ -9,6 +9,22 @@ public class DateButton extends JButton {
     private static final DateChooser DATE_CHOOSER = new DateChooser((JFrame) null, "Select Date");
     private Date date;
 
+    /**
+     * Fires an action performed event with the given ActionEvent.
+     *
+     * @param e the ActionEvent to be fired
+     * @throws NullPointerException if the DATE_CHOOSER is null
+     * @throws IllegalArgumentException if the date selected is invalid
+     *
+     * Example:
+     *
+     * <pre>{@code
+     * protected void someMethod() {
+     *     ActionEvent event = new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "command");
+     *     fireActionPerformed(event);
+     * }
+     * }</pre>
+     */
     protected void fireActionPerformed(ActionEvent e) {
 
         Date newDate = DATE_CHOOSER.select(date);
@@ -29,11 +45,28 @@ public class DateButton extends JButton {
         this(new Date());
     }
 
+    /**
+     * Returns the date.
+     *
+     * @return the date
+     */
     public Date getDate() {
 
         return date;
     }
 
+    /**
+     * Sets the date and updates the text with the formatted date.
+     *
+     * @param date the new date to be set
+     * @throws IllegalArgumentException if the date is null
+     * @throws PropertyVetoException if the date change is vetoed by a PropertyChangeListener
+     * @example
+     * <pre>{@code
+     * Date newDate = new Date();
+     * setDate(newDate);
+     * }</pre>
+     */
     public void setDate(Date date) {
 
         Date old = this.date;

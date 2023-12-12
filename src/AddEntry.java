@@ -223,6 +223,20 @@ public class AddEntry extends JInternalFrame {
         });
     }//constructor closed
 
+    /**
+     * This method generates a new bus number by retrieving the maximum bus number from the database and incrementing it by 1.
+     * It then sets the generated bus number in the text field.
+     *
+     * @throws SQLException if there is an error executing the SQL query
+     * @throws Exception if there is an error in the generator process
+     *
+     * Example:
+     * <pre>
+     * {@code
+     * generator();
+     * }
+     * </pre>
+     */
     private void generator() {
         try {
             Statement stmt = DBConnection.getDBConnection().createStatement();

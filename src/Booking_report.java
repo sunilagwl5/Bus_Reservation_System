@@ -54,6 +54,26 @@ class Booking_report extends JInternalFrame {
                 setOpaque(false);
             }
 
+            /**
+             * This method is responsible for painting the graphics.
+             * It calls the superclass's paint method to perform the actual painting.
+             *
+             * @param g the graphics context to be used for painting
+             * @throws NullPointerException if the graphics context is null
+             * @throws SecurityException if a security manager exists and its checkPermission method denies the AWTPermission("showWindowWithoutWarningBanner") permission
+             * @example
+             * <pre>
+             * {@code
+             * // Example of using the paint method
+             * public class MyComponent extends Component {
+             *     public void paint(Graphics g) {
+             *         super.paint(g);
+             *         // Additional painting logic here
+             *     }
+             * }
+             * }
+             * </pre>
+             */
             public void paint(Graphics g) {
                 super.paint(g);
             }
@@ -79,6 +99,19 @@ class Booking_report extends JInternalFrame {
         content.add(listsTabs, BorderLayout.CENTER);
         cancel.addActionListener(new java.awt.event.ActionListener() {
 
+            /**
+             * Disposes of the current window when an action event occurs.
+             *
+             * @param e the action event that occurred
+             * @throws NullPointerException if the action event is null
+             *
+             * Example:
+             * <pre>
+             * public void actionPerformed(ActionEvent e) {
+             *     dispose();
+             * }
+             * </pre>
+             */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
             }
@@ -89,6 +122,18 @@ class Booking_report extends JInternalFrame {
 
     }
 
+    /**
+     * Retrieves and prints the list of bookings from the database.
+     *
+     * @exception SQLException if a database access error occurs or this method is called on a closed connection
+     *
+     * @example
+     * <pre>
+     * {@code
+     * printList();
+     * }
+     * </pre>
+     */
     private void printList() {
         try {
 
