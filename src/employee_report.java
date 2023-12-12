@@ -1,19 +1,9 @@
-
-import java.sql.*;
-import javax.swing.*;
-import java.text.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import javax.swing.text.*;
-import java.text.*;
-import java.util.*;
-import javax.swing.undo.*;
-import javax.swing.event.*;
-import java.net.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 class employee_report extends JInternalFrame {
 
@@ -29,7 +19,7 @@ class employee_report extends JInternalFrame {
     private static Connection dbcon = null;
     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
     Statement stmt = null;
-    private JButton print,  cancel;
+    private JButton print, cancel;
     private JPanel panel;
 
     public employee_report() {
@@ -67,7 +57,7 @@ class employee_report extends JInternalFrame {
             }
 
             public void paint(Graphics g) {
-                 super.paint(g);
+                super.paint(g);
             }
         };
 
@@ -88,7 +78,6 @@ class employee_report extends JInternalFrame {
         printList();
 
 
-
         content.add(listsTabs, BorderLayout.CENTER);
         setResizable(false);
         setSize(1250, 720);
@@ -98,7 +87,6 @@ class employee_report extends JInternalFrame {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 //dispose();
                 print(createBuffer());
-
             }
         });
 
@@ -108,9 +96,7 @@ class employee_report extends JInternalFrame {
     private void printList() {
         try {
 
-            ResultSet rst = DBConnection.getDBConnection().createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE).executeQuery("select empNo,Sname,Fname,Gender,Designation,Telephone,E_Mail from Emp");
+            ResultSet rst = DBConnection.getDBConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).executeQuery("select empNo,Sname,Fname,Gender,Designation,Telephone,E_Mail from Emp");
             listPane.append("\n");
             listPane.append("       Emp_No" + "\t\t" + "Sname" + "\t\t" + "Fname" + "\t\t" + "Gender\t\t" + "Designation" + "\t\t" + "Telephone\t\t" + "E-Mail\n");
             listPane.append("\n");
@@ -144,9 +130,11 @@ class employee_report extends JInternalFrame {
         String buffer;
         buffer = listPane.getText();
         return buffer;
+
     }
 
     private void print(String s) {
+
         /*StringReader sr = new StringReader(s);
         LineNumberReader lnr = new LineNumberReader(sr);
         Font typeface = new Font("Monospaced", Font.PLAIN, 12);

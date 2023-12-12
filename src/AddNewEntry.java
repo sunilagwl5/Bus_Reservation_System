@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.text.*;
-import javax.swing.*;
-import java.io.*;
-import java.sql.*;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class AddNewEntry extends JInternalFrame {
 

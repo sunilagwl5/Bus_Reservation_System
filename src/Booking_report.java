@@ -1,10 +1,9 @@
-
-import java.sql.*;
 import javax.swing.*;
-import java.util.Date;
-import java.text.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 class Booking_report extends JInternalFrame {
 
@@ -19,7 +18,7 @@ class Booking_report extends JInternalFrame {
     private static Connection dbcon = null;
     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
     Statement stmt = null;
-    private JButton print,  cancel;
+    private JButton print, cancel;
     private JPanel panel;
 
     public Booking_report() {
@@ -50,14 +49,12 @@ class Booking_report extends JInternalFrame {
         setResizable(false);
         listPane = new JTextArea() {
 
-            
 
             {
                 setOpaque(false);
             }
 
             public void paint(Graphics g) {
-
                 super.paint(g);
             }
         };
@@ -79,13 +76,11 @@ class Booking_report extends JInternalFrame {
         printList();
 
 
-
         content.add(listsTabs, BorderLayout.CENTER);
         cancel.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
-
             }
         });
 
@@ -97,9 +92,7 @@ class Booking_report extends JInternalFrame {
     private void printList() {
         try {
 
-            ResultSet rst = DBConnection.getDBConnection().createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE).executeQuery("select Booking_No,PassName,Bus_RegNo,SeatNo,Date_of_Travel,Destination from BOOKING");
+            ResultSet rst = DBConnection.getDBConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).executeQuery("select Booking_No,PassName,Bus_RegNo,SeatNo,Date_of_Travel,Destination from BOOKING");
             listPane.append("\n\n\n");
             listPane.append("Booking_No" + "\t\t" + "Passenger_Name" + "\t" + "Bus_RegNo" + "\t\t" + "SeatNo\t\t" + "Date_travel" + "\t\t" + "Destination\n");
             listPane.append("\n");

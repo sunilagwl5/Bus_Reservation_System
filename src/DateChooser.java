@@ -1,40 +1,16 @@
-
+import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
-public class DateChooser extends JDialog
-        implements ItemListener, MouseListener, FocusListener, KeyListener, ActionListener {
+public class DateChooser extends JDialog implements ItemListener, MouseListener, FocusListener, KeyListener, ActionListener {
 
     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-    private static final String[] MONTHS =
-            new String[]{
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    };
-    private static final String[] DAYS =
-            new String[]{
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat"
-    };
+    private static final String[] MONTHS = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    private static final String[] DAYS = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
     private static final Color WEEK_DAYS_FOREGROUND = Color.black;
     private static final Color DAYS_FOREGROUND = Color.blue;
     private static final Color SELECTED_DAY_FOREGROUND = Color.white;
@@ -59,11 +35,11 @@ public class DateChooser extends JDialog
 
         public FocusablePanel(LayoutManager layout) {
             super(layout);
-
         }
 
         public boolean isFocusTraversable() {
             return true;
+
         }
     }
 
@@ -127,6 +103,7 @@ public class DateChooser extends JDialog
 
         pack();
         setResizable(false);
+
     }
 
     private int getSelectedDay() {
@@ -137,6 +114,7 @@ public class DateChooser extends JDialog
             return Integer.parseInt(day.getText());
         } catch (NumberFormatException e) {
         }
+
         return -1;
     }
 
@@ -152,10 +130,12 @@ public class DateChooser extends JDialog
         if (daysGrid.hasFocus()) {
             day.setBorder(FOCUSED_BORDER);
         }
+
     }
 
     private void setSelected(int newDay) {
         setSelected(days[(newDay + offset - 1) / 7 + 1][(newDay + offset - 1) % 7]);
+
     }
 
     private void update() {
@@ -171,6 +151,7 @@ public class DateChooser extends JDialog
 
         offset = calendar.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY;
         lastDay = calendar.getActualMaximum(Calendar.DATE);
+
         for (int i = 0; i < lastDay; i++) {
             days[(i + offset) / 7 + 1][(i + offset) % 7].setText(String.valueOf(i + 1));
         }
@@ -187,6 +168,7 @@ public class DateChooser extends JDialog
             okClicked = true;
         }
         hide();
+
     }
 
     public void focusGained(FocusEvent e) {
@@ -203,6 +185,7 @@ public class DateChooser extends JDialog
 
     public void keyPressed(KeyEvent e) {
         int iday = getSelectedDay();
+
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
                 if (iday > 1) {
@@ -292,6 +275,7 @@ public class DateChooser extends JDialog
         calendar.set(Calendar.MONTH, month.getSelectedIndex() + Calendar.JANUARY);
         calendar.set(Calendar.YEAR, year.getSelectedIndex() + FIRST_YEAR);
         return calendar.getTime();
+
     }
 
     public Date select() {

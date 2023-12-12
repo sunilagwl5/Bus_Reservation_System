@@ -1,4 +1,3 @@
-
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -18,10 +17,10 @@ import javax.swing.JTextField;
 
 public class LoginScreen extends JFrame {
 
-    private JLabel lblUsername,  lblPasswd,  lblCat;
+    private JLabel lblUsername, lblPasswd, lblCat;
     public JTextField txtUser;
     private JPasswordField txtPasswd;
-    private JButton btnLogin,  btnCancel;
+    private JButton btnLogin, btnCancel;
     private JComboBox cmbCat;
     private Connection con;
     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -48,7 +47,7 @@ public class LoginScreen extends JFrame {
 
         lblUsername.setBounds(40, 30, 100, 25);
         lblPasswd.setBounds(40, 65, 100, 25);
-        lblCat.setBounds(40, 100, 100, 25);   
+        lblCat.setBounds(40, 100, 100, 25);
         txtUser.setBounds(150, 30, 160, 25);
         txtPasswd.setBounds(150, 65, 160, 25);
         cmbCat.setBounds(150, 100, 160, 25);
@@ -77,7 +76,7 @@ public class LoginScreen extends JFrame {
         btnCancel.addActionListener(listener);
         con = DBConnection.getDBConnection();
         if (con == null) {
-  
+
             JOptionPane.showMessageDialog(null, "Error on establishing database connection", "Error", JOptionPane.ERROR_MESSAGE);
             this.dispose();
         }
@@ -88,19 +87,17 @@ public class LoginScreen extends JFrame {
         String password = txtPasswd.getText();
         String SQL;
         String category = cmbCat.getSelectedItem().toString();
-        SQL = "SELECT * FROM users WHERE username='" + username + "'  AND password='" +
-                password + "'AND Category='" + category + "'";
+        SQL = "SELECT * FROM users WHERE username='" + username + "'  AND password='" + password + "'AND Category='" + category + "'";
         try {
             Statement stmt = con.createStatement();
             stmt.execute(SQL);
             ResultSet rs = stmt.getResultSet();
             boolean recordfound = rs.next();
             if (recordfound) {
-                LoadMDIWindow();                
+                LoadMDIWindow();
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "The system could not log you in.\n" +
-                        " Please make sure your username and password are correct", "Login Failure", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "The system could not log you in.\n" + " Please make sure your username and password are correct", "Login Failure", JOptionPane.INFORMATION_MESSAGE);
                 txtUser.setText("");
                 txtPasswd.setText("");
                 txtUser.requestFocus();
@@ -109,16 +106,17 @@ public class LoginScreen extends JFrame {
             JOptionPane.showMessageDialog(null, "Error on login operation", "Login Error", JOptionPane.ERROR_MESSAGE);
         }//try catch closed
     }//Login() closed
-        public void LoadMDIWindow() {
+
+    public void LoadMDIWindow() {
         if (cmbCat.getSelectedItem().equals("Manager")) {
-            new MDIWindow().LoginManager();            
+            new MDIWindow().LoginManager();
         } else if (cmbCat.getSelectedItem().equals("Supervisor")) {
             new MDIWindow().LoginSupervisor();
         } else {
             new MDIWindow().LoginClerk();
         }
     }//LoginValidity() closed
-        
+
     private class ButtonListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -128,11 +126,13 @@ public class LoginScreen extends JFrame {
                     txtUser.requestFocus();
                     return;
                 }
+
                 if (txtPasswd.getText() == null || txtPasswd.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Enter password", "Missing field", JOptionPane.DEFAULT_OPTION);
                     txtPasswd.requestFocus();
                     return;
                 }
+
                 login();
             } else if (e.getSource() == btnCancel) {
                 System.exit(0);
