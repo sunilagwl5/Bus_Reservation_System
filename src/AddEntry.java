@@ -27,6 +27,7 @@ public class AddEntry extends JInternalFrame {
     private Date endDate;
 
     public AddEntry() {
+        
         super("New Bus Entry", false, true, false, true);
         setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -172,7 +173,6 @@ public class AddEntry extends JInternalFrame {
         });
     }//constructor closed
     private void generator() {
-        
         try {
             Statement stmt = DBConnection.getDBConnection().createStatement();
             ResultSet rst = stmt.executeQuery("select * from Buses where BusNo =(SELECT Max(Buses.BusNo) AS MaxOfBusNo FROM Buses)");
