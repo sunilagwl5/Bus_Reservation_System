@@ -56,6 +56,25 @@ class employee_report extends JInternalFrame {
                 setOpaque(false);
             }
 
+            /**
+             * This method is responsible for painting the graphics.
+             *
+             * @param g the graphics object to be painted
+             * @throws NullPointerException if the graphics object is null
+             * @throws SecurityException if a security violation occurs
+             *
+             * Example:
+             * <pre>
+             * {@code
+             * public class MyComponent extends Component {
+             *     public void paint(Graphics g) {
+             *         super.paint(g);
+             *         // additional painting logic here
+             *     }
+             * }
+             * }
+             * </pre>
+             */
             public void paint(Graphics g) {
                 super.paint(g);
             }
@@ -84,6 +103,24 @@ class employee_report extends JInternalFrame {
         setVisible(true);
         cancel.addActionListener(new java.awt.event.ActionListener() {
 
+            /**
+             * Performs the action in response to an action event.
+             * This method disposes the current window and prints the content of the buffer.
+             *
+             * @param e the action event
+             * @throws NullPointerException if the action event is null
+             * @throws IllegalStateException if the buffer creation fails
+             * @throws IOException if an I/O error occurs while printing the buffer
+             *
+             * Example:
+             * <pre>
+             *     // Assuming 'actionPerformed' is called within a class that extends ActionListener
+             *     public void actionPerformed(ActionEvent e) {
+             *         //dispose();
+             *         print(createBuffer());
+             *     }
+             * </pre>
+             */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 //dispose();
                 print(createBuffer());
@@ -93,6 +130,19 @@ class employee_report extends JInternalFrame {
 
     }
 
+    /**
+     * This method prints the list of employees from the database.
+     * It retrieves the employee details from the database and appends them to the listPane.
+     *
+     * @throws SQLException if an error occurs while accessing the database
+     *
+     * Example:
+     * <pre>
+     * {@code
+     * printList();
+     * }
+     * </pre>
+     */
     private void printList() {
         try {
 
@@ -126,6 +176,20 @@ class employee_report extends JInternalFrame {
         }
     }
 
+    /**
+     * Retrieves the text from the list pane and returns it as a string buffer.
+     *
+     * @return The text from the list pane as a string buffer.
+     * @throws NullPointerException if the list pane is null.
+     *
+     * Example:
+     * <pre>
+     * {@code
+     * String buffer = createBuffer();
+     * System.out.println(buffer);
+     * }
+     * </pre>
+     */
     public String createBuffer() {
         String buffer;
         buffer = listPane.getText();
@@ -133,6 +197,20 @@ class employee_report extends JInternalFrame {
 
     }
 
+    /**
+     * Prints the given string to a print job.
+     *
+     * @param s the string to be printed
+     * @throws IOException if an I/O error occurs while reading the string
+     * @throws PrinterException if a printing error occurs
+     *
+     * Example:
+     *
+     * <pre>{@code
+     * String text = "This is a sample text to be printed.";
+     * print(text);
+     * }</pre>
+     */
     private void print(String s) {
 
         /*StringReader sr = new StringReader(s);
