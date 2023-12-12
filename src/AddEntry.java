@@ -91,6 +91,7 @@ public class AddEntry extends JInternalFrame {
 
         btnAddNew.addActionListener(new ActionListener() {
 
+            
             public void actionPerformed(ActionEvent e) {
 
                 if (txtBusNo.getText() == null || txtBusNo.getText().equals("")) {
@@ -171,6 +172,7 @@ public class AddEntry extends JInternalFrame {
         });
     }//constructor closed
     private void generator() {
+        
         try {
             Statement stmt = DBConnection.getDBConnection().createStatement();
             ResultSet rst = stmt.executeQuery("select * from Buses where BusNo =(SELECT Max(Buses.BusNo) AS MaxOfBusNo FROM Buses)");
