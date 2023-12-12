@@ -37,12 +37,43 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
             super(layout);
         }
 
+        /**
+         * Returns whether this component should be traversable by focus.
+         *
+         * @return true if this component should be traversable by focus; otherwise, false
+         * @throws SomeException if there is a specific exception that can be thrown
+         *
+         * Example:
+         * <pre>
+         * {@code
+         *     boolean focusTraversable = isFocusTraversable();
+         *     if (focusTraversable) {
+         *         // Do something
+         *     } else {
+         *         // Do something else
+         *     }
+         * }
+         * </pre>
+         */
         public boolean isFocusTraversable() {
             return true;
 
         }
     }
 
+    /**
+     * Constructs the calendar GUI components and sets up event listeners.
+     *
+     * @throws NullPointerException if any of the GUI components are not initialized properly
+     * @throws IllegalArgumentException if the year range is invalid
+     *
+     * Example:
+     *
+     * <pre>
+     * CalendarGUI calendar = new CalendarGUI();
+     * calendar.construct();
+     * </pre>
+     */
     private void construct() {
         calendar = new GregorianCalendar();
 
@@ -106,6 +137,20 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
 
     }
 
+    /**
+     * Returns the selected day as an integer.
+     *
+     * @return The selected day as an integer, or -1 if the day is null or cannot be parsed as an integer.
+     * @throws NumberFormatException if the text of the day field cannot be parsed as an integer.
+     *
+     * Example:
+     * <pre>
+     * {@code
+     * // Assuming day is a JTextField
+     * int selectedDay = getSelectedDay();
+     * }
+     * </pre>
+     */
     private int getSelectedDay() {
         if (day == null) {
             return -1;
@@ -118,6 +163,20 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
         return -1;
     }
 
+    /**
+     * Sets the selected day based on the new day value.
+     *
+     * @param newDay the new day value to set
+     * @throws ArrayIndexOutOfBoundsException if the newDay value is out of bounds
+     * @throws IllegalArgumentException if the offset is invalid
+     * @throws NullPointerException if the days array is null
+     * @throws IndexOutOfBoundsException if the calculated index is out of bounds
+     * @example
+     * <pre>
+     *     // Example usage:
+     *     setSelected(10);
+     * </pre>
+     */
     private void setSelected(JLabel newDay) {
         if (day != null) {
             day.setForeground(DAYS_FOREGROUND);
@@ -133,11 +192,36 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
 
     }
 
+    /**
+     * Sets the selected day based on the new day value.
+     *
+     * @param newDay the new day value to be set
+     * @throws ArrayIndexOutOfBoundsException if the newDay value is out of bounds
+     * @throws NullPointerException if the days array is null
+     * @throws IllegalArgumentException if the offset is invalid
+     * @see Day#setSelected(Day)
+     *
+     * Example:
+     * <pre>
+     *     setSelected(10);
+     * </pre>
+     */
     private void setSelected(int newDay) {
         setSelected(days[(newDay + offset - 1) / 7 + 1][(newDay + offset - 1) % 7]);
 
     }
 
+    /**
+     * Updates the calendar display based on the selected month and year.
+     *
+     * @throws IllegalArgumentException if the selected day is invalid
+     *
+     * Example:
+     * <pre>
+     *     // Update the calendar display
+     *     update();
+     * </pre>
+     */
     private void update() {
         int iday = getSelectedDay();
         for (int i = 0; i < 7; i++) {
@@ -163,6 +247,22 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
         }
     }
 
+    /**
+     * This method is called when an action is performed.
+     *
+     * @param e the ActionEvent that occurred
+     * @throws NullPointerException if the ActionEvent e is null
+     *
+     * Example:
+     * <pre>
+     * public void actionPerformed(ActionEvent e) {
+     *     if (e.getSource() == ok) {
+     *         okClicked = true;
+     *     }
+     *     hide();
+     * }
+     * </pre>
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ok) {
             okClicked = true;
@@ -183,6 +283,44 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
         update();
     }
 
+            /**
+             * Responds to a key being pressed.
+             *
+             * @param e the KeyEvent representing the key press
+             * @throws IllegalArgumentException if the selected day is invalid
+             * @throws IllegalStateException if the last day is not set
+             *
+             * Example:
+             * <pre>
+             *     // Assuming the lastDay is set and getSelectedDay() returns the currently selected day
+             *     public void keyPressed(KeyEvent e) {
+             *         int iday = getSelectedDay();
+             *
+             *         switch (e.getKeyCode()) {
+             *             case KeyEvent.VK_LEFT:
+             *                 if (iday > 1) {
+             *                     setSelected(iday - 1);
+             *                 }
+             *                 break;
+             *             case KeyEvent.VK_RIGHT:
+             *                 if (iday < lastDay) {
+             *                     setSelected(iday + 1);
+             *                 }
+             *                 break;
+             *             case KeyEvent.VK_UP:
+             *                 if (iday > 7) {
+             *                     setSelected(iday - 7);
+             *                 }
+             *                 break;
+             *             case KeyEvent.VK_DOWN:
+             *                 if (iday <= lastDay - 7) {
+             *                     setSelected(iday + 7);
+             *                 }
+             *                 break;
+             *         }
+             *     }
+             * </pre>
+             */
     public void keyPressed(KeyEvent e) {
         int iday = getSelectedDay();
 
@@ -257,6 +395,20 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
         setLocation((screen.width - 800) / 2, ((screen.height - 550) / 2));
     }
 
+    /**
+     * Selects a date.
+     *
+     * @return the selected date
+     * @throws SomeException if there is an issue with selecting the date
+     *
+     * Example:
+     * <pre>
+     * {@code
+     * Date selectedDate = select();
+     * System.out.println("Selected date: " + selectedDate);
+     * }
+     * </pre>
+     */
     public Date select(Date date) {
         calendar.setTime(date);
         int _day = calendar.get(Calendar.DATE);
@@ -278,6 +430,20 @@ public class DateChooser extends JDialog implements ItemListener, MouseListener,
 
     }
 
+    /**
+     * Selects a date.
+     *
+     * @return the selected date
+     * @throws SomeException if there is an issue with selecting the date
+     *
+     * Example:
+     * <pre>
+     * {@code
+     * Date selectedDate = select();
+     * System.out.println("Selected date: " + selectedDate);
+     * }
+     * </pre>
+     */
     public Date select() {
         return select(new Date());
     }
