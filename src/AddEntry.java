@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -9,10 +8,10 @@ import java.sql.*;
 
 public class AddEntry extends JInternalFrame {
 
-    
-    private JLabel lblBusNo,  lblRegNo,  lblModel,  lblCapacity,  lblDOP,  lblInsuranceStatus,  lblDOI,  lblDOIE;
-    private JTextField txtBusNo,  txtRegNo,  txtModel,  txtCapacity,  txtIStatus;
-    private JButton btnAddNew,  btnCancel,  btnClear,  btnNext;
+
+    private JLabel lblBusNo, lblRegNo, lblModel, lblCapacity, lblDOP, lblInsuranceStatus, lblDOI, lblDOIE;
+    private JTextField txtBusNo, txtRegNo, txtModel, txtCapacity, txtIStatus;
+    private JButton btnAddNew, btnCancel, btnClear, btnNext;
     private JPanel fieldsPanel;
     private JPanel jPanel3;
     private JPanel buttonPanel;
@@ -27,7 +26,7 @@ public class AddEntry extends JInternalFrame {
     private Date endDate;
 
     public AddEntry() {
-        
+
         super("New Bus Entry", false, true, false, true);
         setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -92,7 +91,7 @@ public class AddEntry extends JInternalFrame {
 
         btnAddNew.addActionListener(new ActionListener() {
 
-            
+
             public void actionPerformed(ActionEvent e) {
 
                 if (txtBusNo.getText() == null || txtBusNo.getText().equals("")) {
@@ -125,20 +124,11 @@ public class AddEntry extends JInternalFrame {
                 try {
                     Statement stmt = DBConnection.getDBConnection().createStatement();
 
-                    String sql = "INSERT INTO Buses (BusNo, Bus_RegNo, Model, Capacity, DateBought,Insurance_Status,Date_Insured,Insurance_Expiry) VALUES ('" +
-                            txtBusNo.getText() + "', '" +
-                            txtRegNo.getText() + "', '" +
-                            txtModel.getText() + "', '" +
-                            txtCapacity.getText() + "', '" +
-                            date_bought.getText() + "', '" +
-                            txtIStatus.getText() + "', '" +
-                            date_ins.getText() + "', '" +
-                            date_expiry.getText() + "')";
+                    String sql = "INSERT INTO Buses (BusNo, Bus_RegNo, Model, Capacity, DateBought,Insurance_Status,Date_Insured,Insurance_Expiry) VALUES ('" + txtBusNo.getText() + "', '" + txtRegNo.getText() + "', '" + txtModel.getText() + "', '" + txtCapacity.getText() + "', '" + date_bought.getText() + "', '" + txtIStatus.getText() + "', '" + date_ins.getText() + "', '" + date_expiry.getText() + "')";
 
                     int result = stmt.executeUpdate(sql);
                     String ObjButtons[] = {"Yes", "No"};
-                    int PromptResult = JOptionPane.showOptionDialog(null, "Record succesfully added.Do you want to add another?",
-                            "Success", JOptionPane.INFORMATION_MESSAGE, JOptionPane.WARNING_MESSAGE, null, ObjButtons, ObjButtons[1]);
+                    int PromptResult = JOptionPane.showOptionDialog(null, "Record succesfully added.Do you want to add another?", "Success", JOptionPane.INFORMATION_MESSAGE, JOptionPane.WARNING_MESSAGE, null, ObjButtons, ObjButtons[1]);
                     if (PromptResult == 0) {
                         generator();
                         txtRegNo.setText("");
@@ -172,6 +162,7 @@ public class AddEntry extends JInternalFrame {
             }
         });
     }//constructor closed
+
     private void generator() {
         try {
             Statement stmt = DBConnection.getDBConnection().createStatement();

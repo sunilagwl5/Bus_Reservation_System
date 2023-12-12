@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,12 +9,12 @@ import java.sql.*;
 public class AddNewEntry extends JInternalFrame {
 
     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-    private JLabel empNo,  Sname,  Fname,  Lname,  Gender,  Designation,  telephone,  lblEmplPic,  email,  address,  DOB;
-    private JTextField txtEmpNo,  txtSname,  txtFname,  txtLname,  txtDesignation,  txttelephone,  txtemail,  txtaddress;
+    private JLabel empNo, Sname, Fname, Lname, Gender, Designation, telephone, lblEmplPic, email, address, DOB;
+    private JTextField txtEmpNo, txtSname, txtFname, txtLname, txtDesignation, txttelephone, txtemail, txtaddress;
     private JButton jButton1;
-    private JButton jButton2,  AddPic;
-    private JButton Clear,  Next;
-    private JPanel jPanel1,  pics;
+    private JButton jButton2, AddPic;
+    private JButton Clear, Next;
+    private JPanel jPanel1, pics;
     private JPanel jPanel3;
     private JPanel jPanel4;
     private JPanel jPanel5;
@@ -29,7 +28,7 @@ public class AddNewEntry extends JInternalFrame {
 
     public AddNewEntry() {
 
-        super("Add New Driver",false,true,false,true);
+        super("Add New Driver", false, true, false, true);
         setDefaultCloseOperation(javax.swing.JFrame.HIDE_ON_CLOSE);
         empNo = new JLabel("Employee Number ");
         Sname = new JLabel("Surname ");
@@ -113,14 +112,10 @@ public class AddNewEntry extends JInternalFrame {
 
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                if (!(Character.isLetter(c) ||
-                        (c == KeyEvent.VK_BACK_SPACE) ||
-                        (c == KeyEvent.VK_SPACE) ||
-                        (c == KeyEvent.VK_DELETE))) {
+                if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 
                     getToolkit().beep();
-                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error",
-                            JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
                     e.consume();
                 }
             }
@@ -129,14 +124,10 @@ public class AddNewEntry extends JInternalFrame {
 
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                if (!(Character.isLetter(c) ||
-                        (c == KeyEvent.VK_BACK_SPACE) ||
-                        (c == KeyEvent.VK_SPACE) ||
-                        (c == KeyEvent.VK_DELETE))) {
+                if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 
                     getToolkit().beep();
-                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error",
-                            JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
                     e.consume();
                 }
             }
@@ -145,14 +136,10 @@ public class AddNewEntry extends JInternalFrame {
 
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                if (!(Character.isLetter(c) ||
-                        (c == KeyEvent.VK_BACK_SPACE) ||
-                        (c == KeyEvent.VK_SPACE) ||
-                        (c == KeyEvent.VK_DELETE))) {
+                if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 
                     getToolkit().beep();
-                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error",
-                            JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
                     e.consume();
                 }
             }
@@ -163,14 +150,10 @@ public class AddNewEntry extends JInternalFrame {
 
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                if (!(Character.isLetter(c) ||
-                        (c == KeyEvent.VK_BACK_SPACE) ||
-                        (c == KeyEvent.VK_SPACE) ||
-                        (c == KeyEvent.VK_DELETE))) {
+                if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
                     txtDesignation.requestFocus();
                     getToolkit().beep();
-                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error",
-                            JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
                     e.consume();
                 }
             }
@@ -178,15 +161,14 @@ public class AddNewEntry extends JInternalFrame {
         txttelephone.addFocusListener(new FocusAdapter() {
 
             public void focusLost(FocusEvent e) {
-                JTextField textField =
-                        (JTextField) e.getSource();
+                JTextField textField = (JTextField) e.getSource();
                 String content = textField.getText();
                 if (content.length() != 0) {
                     try {
                         Integer.parseInt(content);
                     } catch (NumberFormatException nfe) {
                         getToolkit().beep();
-                        JOptionPane.showMessageDialog(null, "Invalid data entry", "Error",JOptionPane.DEFAULT_OPTION);
+                        JOptionPane.showMessageDialog(null, "Invalid data entry", "Error", JOptionPane.DEFAULT_OPTION);
                         textField.requestFocus();
                         txttelephone.setText("");
                     }
@@ -196,61 +178,47 @@ public class AddNewEntry extends JInternalFrame {
         jButton1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (txtEmpNo.getText() == null ||
-                        txtEmpNo.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enter Employee Number",
-                            "Error", JOptionPane.DEFAULT_OPTION);
+                if (txtEmpNo.getText() == null || txtEmpNo.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter Employee Number", "Error", JOptionPane.DEFAULT_OPTION);
                     txtEmpNo.requestFocus();
                     return;
                 }
 
-                if (txtSname.getText() == null ||
-                        txtSname.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enter Employee Surname ",
-                            "Error", JOptionPane.DEFAULT_OPTION);
+                if (txtSname.getText() == null || txtSname.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter Employee Surname ", "Error", JOptionPane.DEFAULT_OPTION);
                     txtSname.requestFocus();
                     return;
                 }
 
-                if (txtFname.getText() == null ||
-                        txtFname.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enetr Employee First Name",
-                            "Error", JOptionPane.DEFAULT_OPTION);
+                if (txtFname.getText() == null || txtFname.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enetr Employee First Name", "Error", JOptionPane.DEFAULT_OPTION);
                     txtFname.requestFocus();
                     return;
                 }
 
-                if (txtLname.getText() == null ||
-                        txtLname.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enetr Employee Last Name",
-                            "Error", JOptionPane.DEFAULT_OPTION);
+                if (txtLname.getText() == null || txtLname.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enetr Employee Last Name", "Error", JOptionPane.DEFAULT_OPTION);
                     txtLname.requestFocus();
                     return;
                 }
-                if (txttelephone.getText() == null ||
-                        txttelephone.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enter telphone number",
-                            "Error", JOptionPane.DEFAULT_OPTION);
+                if (txttelephone.getText() == null || txttelephone.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter telphone number", "Error", JOptionPane.DEFAULT_OPTION);
                     txttelephone.requestFocus();
                     return;
                 }
-                if (txtemail.getText() == null ||
-                        txtemail.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enter E-mail address",
-                            "Error", JOptionPane.DEFAULT_OPTION);
+                if (txtemail.getText() == null || txtemail.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter E-mail address", "Error", JOptionPane.DEFAULT_OPTION);
                     txtemail.requestFocus();
                     return;
                 }
-                if (txtaddress.getText() == null ||
-                        txtaddress.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enter Address","Error", JOptionPane.DEFAULT_OPTION);
+                if (txtaddress.getText() == null || txtaddress.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter Address", "Error", JOptionPane.DEFAULT_OPTION);
                     txtaddress.requestFocus();
                     return;
                 }
 
-                if (txtDesignation.getText() == null ||
-                        txtDesignation.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Enter Employee designation","Error", JOptionPane.DEFAULT_OPTION);
+                if (txtDesignation.getText() == null || txtDesignation.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter Employee designation", "Error", JOptionPane.DEFAULT_OPTION);
                     txtDesignation.requestFocus();
                     return;
                 }
@@ -258,25 +226,14 @@ public class AddNewEntry extends JInternalFrame {
                 try {
                     Statement statement = DBConnection.getDBConnection().createStatement();
                     {
-                        String temp = "INSERT INTO Emp (EmpNo, Sname, Fname, Lname, Gender,DOB,Designation,Telephone,E_Mail,Address) VALUES ('" +
-                                txtEmpNo.getText() + "', '" +
-                                txtSname.getText() + "', '" +
-                                txtFname.getText() + "', '" +
-                                txtLname.getText() + "', '" +
-                                cbogender.getSelectedItem() + "', '" +
-                                dob.getText() + "', '" +
-                                txtDesignation.getText() + "', '" +
-                                txttelephone.getText() + "', '" +
-                                txtemail.getText() + "', '" +
-                                txtaddress.getText() + "')";
+                        String temp = "INSERT INTO Emp (EmpNo, Sname, Fname, Lname, Gender,DOB,Designation,Telephone,E_Mail,Address) VALUES ('" + txtEmpNo.getText() + "', '" + txtSname.getText() + "', '" + txtFname.getText() + "', '" + txtLname.getText() + "', '" + cbogender.getSelectedItem() + "', '" + dob.getText() + "', '" + txtDesignation.getText() + "', '" + txttelephone.getText() + "', '" + txtemail.getText() + "', '" + txtaddress.getText() + "')";
                         try {
                             lblEmplPic.setIcon(new ImageIcon("Employees/" + txtEmpNo.getText() + ".png"));
                         } catch (Exception p) {
                         }
                         int result = statement.executeUpdate(temp);
                         String ObjButtons[] = {"Yes", "No"};
-                        int PromptResult = JOptionPane.showOptionDialog(null, "Record succesfully added.Do you want to add another?",
-                                "tobiluoch", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, ObjButtons, ObjButtons[1]);
+                        int PromptResult = JOptionPane.showOptionDialog(null, "Record succesfully added.Do you want to add another?", "tobiluoch", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, ObjButtons, ObjButtons[1]);
                         if (PromptResult == 0) {
                             generator();
 
@@ -345,9 +302,7 @@ public class AddNewEntry extends JInternalFrame {
     private void generator() {
 
         try {
-            ResultSet rst = DBConnection.getDBConnection().createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE).executeQuery("SELECT empNo FROM Emp");
+            ResultSet rst = DBConnection.getDBConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).executeQuery("SELECT empNo FROM Emp");
             txtEmpNo.setText("1000");
             while (rst.next()) {
                 String s;
@@ -359,7 +314,7 @@ public class AddNewEntry extends JInternalFrame {
 
             }
         } catch (Exception n) {
-            JOptionPane.showMessageDialog(null,"Error on operation");
+            JOptionPane.showMessageDialog(null, "Error on operation");
         }
     }
 
