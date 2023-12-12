@@ -433,16 +433,18 @@ public class AddNewEntry extends JInternalFrame {
     }
 
     /**
-     * This method generates a new employee number by retrieving the last employee number from the database, incrementing it by 1, and setting it as the value in the text field.
+     * This method generates a new employee number by retrieving the last employee number from the database and incrementing it by 1.
+     * It updates the text field with the new employee number.
      *
      * @throws SQLException if a database access error occurs or this method is called on a closed connection
      * @throws Exception if an error occurs during the operation
      *
      * Example:
-     *
-     * <pre>{@code
+     * <pre>
+     * {@code
      * generator();
-     * }</pre>
+     * }
+     * </pre>
      */
     private void generator() {
 
