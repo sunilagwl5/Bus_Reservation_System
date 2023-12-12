@@ -110,6 +110,27 @@ public class AddNewEntry extends JInternalFrame {
         generator();
         txtSname.addKeyListener(new KeyAdapter() {
 
+            /**
+             * Invoked when a key has been typed.
+             *
+             * @param e the KeyEvent
+             * @throws NullPointerException if e is null
+             * @throws IllegalArgumentException if the key character is not a letter, backspace, space, or delete
+             *
+             * Example:
+             *
+             * <pre>
+             * public void keyTyped(KeyEvent e) {
+             *     char c = e.getKeyChar();
+             *     if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+             *         txtDesignation.requestFocus();
+             *         getToolkit().beep();
+             *         JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
+             *         e.consume();
+             *     }
+             * }
+             * </pre>
+             */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
@@ -122,6 +143,26 @@ public class AddNewEntry extends JInternalFrame {
         });
         txtFname.addKeyListener(new KeyAdapter() {
 
+            /**
+             * Invoked when a key has been typed.
+             *
+             * @param e the KeyEvent
+             * @throws NullPointerException if e is null
+             * @throws IllegalArgumentException if the key character is not a letter, backspace, space, or delete
+             *
+             * Example:
+             * <pre>
+             * public void keyTyped(KeyEvent e) {
+             *     char c = e.getKeyChar();
+             *     if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+             *         txtDesignation.requestFocus();
+             *         getToolkit().beep();
+             *         JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
+             *         e.consume();
+             *     }
+             * }
+             * </pre>
+             */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
@@ -134,6 +175,26 @@ public class AddNewEntry extends JInternalFrame {
         });
         txtLname.addKeyListener(new KeyAdapter() {
 
+            /**
+             * Invoked when a key has been typed.
+             *
+             * @param e the KeyEvent
+             * @throws NullPointerException if e is null
+             * @throws IllegalArgumentException if the key character is not a letter, backspace, space, or delete
+             *
+             * Example:
+             * <pre>
+             * public void keyTyped(KeyEvent e) {
+             *     char c = e.getKeyChar();
+             *     if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+             *         txtDesignation.requestFocus();
+             *         getToolkit().beep();
+             *         JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
+             *         e.consume();
+             *     }
+             * }
+             * </pre>
+             */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
@@ -148,6 +209,27 @@ public class AddNewEntry extends JInternalFrame {
 
         txtDesignation.addKeyListener(new KeyAdapter() {
 
+            /**
+             * Invoked when a key is typed.
+             *
+             * @param e the KeyEvent
+             * @throws NullPointerException if e is null
+             * @throws IllegalArgumentException if the key character is not a letter, backspace, space, or delete
+             *
+             * Example:
+             *
+             * <pre>
+             * public void keyTyped(KeyEvent e) {
+             *     char c = e.getKeyChar();
+             *     if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+             *         txtDesignation.requestFocus();
+             *         getToolkit().beep();
+             *         JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
+             *         e.consume();
+             *     }
+             * }
+             * </pre>
+             */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
@@ -160,6 +242,11 @@ public class AddNewEntry extends JInternalFrame {
         });
         txttelephone.addFocusListener(new FocusAdapter() {
 
+            /**
+             * Invoked when a component loses the keyboard focus.
+             *
+             * @param e the FocusEvent
+             */
             public void focusLost(FocusEvent e) {
                 JTextField textField = (JTextField) e.getSource();
                 String content = textField.getText();
@@ -177,6 +264,17 @@ public class AddNewEntry extends JInternalFrame {
         });
         jButton1.addActionListener(new ActionListener() {
 
+            /**
+             * This method is called when an action is performed on a specific event.
+             * It clears the text fields for name, designation, telephone, email, and address.
+             *
+             * @param e the action event that occurred
+             * @throws NullPointerException if any of the text fields are null
+             *
+             * Example:
+             *
+             * actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ClearFields"));
+             */
             public void actionPerformed(ActionEvent e) {
                 if (txtEmpNo.getText() == null || txtEmpNo.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Enter Employee Number", "Error", JOptionPane.DEFAULT_OPTION);
@@ -264,6 +362,18 @@ public class AddNewEntry extends JInternalFrame {
 
         jButton2.addActionListener(new java.awt.event.ActionListener() {
 
+            /**
+             * This method is called when an action is performed on a GUI component.
+             * It clears the text fields for name, designation, telephone, email, and address.
+             *
+             * @param e the ActionEvent that triggered the method call
+             *
+             * @throws NullPointerException if any of the text fields (txtSname, txtFname, txtLname, txtDesignation, txttelephone, txtemail, txtaddress) are null
+             *
+             * Example:
+             *
+             * actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ClearFields"));
+             */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 setVisible(true);
                 dispose();
@@ -271,12 +381,34 @@ public class AddNewEntry extends JInternalFrame {
         });
         AddPic.addActionListener(new ActionListener() {
 
+            /**
+             * This method is called when an action is performed on a GUI component.
+             * It clears the text fields for name, designation, telephone, email, and address.
+             *
+             * @param e the ActionEvent that triggered the method
+             * @throws NullPointerException if any of the text fields are null
+             *
+             * Example:
+             *
+             * actionPerformed(new ActionEvent(source, ActionEvent.ACTION_PERFORMED, "ClearFields"));
+             */
             public void actionPerformed(ActionEvent e) {
                 openFile();
             }
         });
         Clear.addActionListener(new java.awt.event.ActionListener() {
 
+            /**
+             * This method is called when an action is performed on a specific event.
+             * It clears the text fields for name, designation, telephone, email, and address.
+             *
+             * @param e the ActionEvent that occurred
+             * @throws NullPointerException if any of the text fields are null
+             *
+             * Example:
+             *
+             * actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ClearFields"));
+             */
             public void actionPerformed(java.awt.event.ActionEvent e) {
 
                 txtSname.setText("");
@@ -299,6 +431,18 @@ public class AddNewEntry extends JInternalFrame {
 
     }
 
+    /**
+     * This method generates a new employee number by retrieving the last employee number from the database, incrementing it by 1, and setting it as the value in the text field.
+     *
+     * @throws SQLException if a database access error occurs or this method is called on a closed connection
+     * @throws Exception if an error occurs during the operation
+     *
+     * Example:
+     *
+     * <pre>{@code
+     * generator();
+     * }</pre>
+     */
     private void generator() {
 
         try {
