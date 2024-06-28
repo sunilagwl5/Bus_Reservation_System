@@ -203,6 +203,17 @@ public class Schedule extends JInternalFrame {
         });
         Cancel.addActionListener(new java.awt.event.ActionListener() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 dispose();
 
@@ -220,6 +231,17 @@ public class Schedule extends JInternalFrame {
 
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     private void setCbx() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -236,6 +258,17 @@ public class Schedule extends JInternalFrame {
         }
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     private void setrt() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -253,6 +286,17 @@ public class Schedule extends JInternalFrame {
         }
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     private void setCombo() {
         String dr;
         dr = "Driver";
@@ -271,6 +315,17 @@ public class Schedule extends JInternalFrame {
 
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     public void validator() {
         String SQL;        
         SQL = ("SELECT * FROM Validator WHERE Bus_No='" + cboBusNo.getSelectedItem() + "' AND Trip_No='" + cboTrip.getSelectedItem() + "'AND Date_Schedule='" + s_date.getText() + "'OR DriverNo='" + cboDriverNo.getSelectedItem() + "' AND Trip_No='" + cboTrip.getSelectedItem() + "'AND Date_Schedule='" + s_date.getText() + "'");

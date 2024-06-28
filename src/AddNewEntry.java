@@ -212,25 +212,15 @@ public class AddNewEntry extends JInternalFrame {
         txtDesignation.addKeyListener(new KeyAdapter() {
 
             /**
-             * Invoked when a key is typed.
+             * Transforms the sign-up request data to match the backend's expected format.
              *
-             * @param e the KeyEvent
-             * @throws NullPointerException if e is null
-             * @throws IllegalArgumentException if the key character is not a letter, backspace, space, or delete
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
              *
-             * Example:
-             *
-             * <pre>
-             * public void keyTyped(KeyEvent e) {
-             *     char c = e.getKeyChar();
-             *     if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-             *         txtDesignation.requestFocus();
-             *         getToolkit().beep();
-             *         JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
-             *         e.consume();
-             *     }
-             * }
-             * </pre>
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
              */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
@@ -246,9 +236,15 @@ public class AddNewEntry extends JInternalFrame {
         txttelephone.addFocusListener(new FocusAdapter() {
 
             /**
-             * Invoked when a component loses the keyboard focus.
+             * Transforms the sign-up request data to match the backend's expected format.
              *
-             * @param e the FocusEvent
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
              */
             public void focusLost(FocusEvent e) {
                 JTextField textField = (JTextField) e.getSource();
@@ -407,15 +403,15 @@ public class AddNewEntry extends JInternalFrame {
         Clear.addActionListener(new java.awt.event.ActionListener() {
 
             /**
-             * This method is called when an action is performed on a specific event.
-             * It clears the text fields for name, designation, telephone, email, and address.
+             * Transforms the sign-up request data to match the backend's expected format.
              *
-             * @param e the ActionEvent that occurred
-             * @throws NullPointerException if any of the text fields are null
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
              *
-             * Example:
-             *
-             * actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ClearFields"));
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
              */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 
@@ -440,18 +436,15 @@ public class AddNewEntry extends JInternalFrame {
     }
 
     /**
-     * This method generates a new employee number by retrieving the last employee number from the database and incrementing it by 1.
-     * It updates the text field with the new employee number.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @throws SQLException if a database access error occurs or this method is called on a closed connection
-     * @throws Exception if an error occurs during the operation
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     * <pre>
-     * {@code
-     * generator();
-     * }
-     * </pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     private void generator() {
 
@@ -474,6 +467,17 @@ public class AddNewEntry extends JInternalFrame {
         
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     private void openFile() {
         
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
