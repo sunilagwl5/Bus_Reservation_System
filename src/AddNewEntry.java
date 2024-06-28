@@ -465,6 +465,7 @@ public class AddNewEntry extends JInternalFrame {
 
                 s = "" + number;
                 txtEmpNo.setText(s);
+                
 
             }
         } catch (Exception n) {
@@ -474,6 +475,7 @@ public class AddNewEntry extends JInternalFrame {
     }
 
     private void openFile() {
+        
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
         
         if (returnVal == JFileChooser.APPROVE_OPTION) {
