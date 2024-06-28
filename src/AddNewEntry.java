@@ -380,8 +380,10 @@ public class AddNewEntry extends JInternalFrame {
              * actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ClearFields"));
              */
             public void actionPerformed(java.awt.event.ActionEvent e) {
+                
                 setVisible(true);
                 dispose();
+                
             }
         });
         AddPic.addActionListener(new ActionListener() {
@@ -477,5 +479,6 @@ public class AddNewEntry extends JInternalFrame {
             getPicture = dialog.getPath();
             lblEmplPic.setIcon(new ImageIcon(getPicture));
         }
+        
     }
 }
