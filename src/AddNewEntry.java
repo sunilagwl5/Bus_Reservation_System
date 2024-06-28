@@ -470,13 +470,13 @@ public class AddNewEntry extends JInternalFrame {
         } catch (Exception n) {
             JOptionPane.showMessageDialog(null, "Error on operation");
         }
+        
     }
 
     private void openFile() {
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
         
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            
             File dialog = fc.getSelectedFile();
             getPicture = dialog.getPath();
             lblEmplPic.setIcon(new ImageIcon(getPicture));
