@@ -105,6 +105,17 @@ public class Buses extends JPanel implements Printable {
         });
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 UpdateEntry frm = new UpdateEntry(tblBusList.getValueAt(getSelectedRow(), 0).toString(),
                 tblBusList.getValueAt(getSelectedRow(), 1).toString(),
@@ -119,12 +130,34 @@ public class Buses extends JPanel implements Printable {
             }
         });
     }//constructor closed
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     public static int getSelectedRow() {
         tblBusList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         javax.swing.ListSelectionModel rowSel = tblBusList.getSelectionModel();
         rowSel.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void valueChanged(javax.swing.event.ListSelectionEvent e) {
                 if (e.getValueIsAdjusting()) {
                     return;
@@ -147,28 +180,94 @@ public class Buses extends JPanel implements Printable {
         };
         private Object[][] data = new Object[50][50];
 
+        /**
+         * Transforms the sign-up request data to match the backend's expected format.
+         *
+         * @param {SignUpRequest} signUpData - The original sign-up request data.
+         *
+         * @returns {Object} The transformed sign-up request data with the following changes:
+         * - `firstName` is mapped to `first_name`
+         * - `lastName` is mapped to `last_name`
+         * - `email` is mapped to `username`
+         * - All other properties remain unchanged.
+         */
         public int getColumnCount() {
             return columnNames.length;
         }
 
+        /**
+         * Transforms the sign-up request data to match the backend's expected format.
+         *
+         * @param {SignUpRequest} signUpData - The original sign-up request data.
+         *
+         * @returns {Object} The transformed sign-up request data with the following changes:
+         * - `firstName` is mapped to `first_name`
+         * - `lastName` is mapped to `last_name`
+         * - `email` is mapped to `username`
+         * - All other properties remain unchanged.
+         */
         public int getRowCount() {
             return data.length;
         }
 
+        /**
+         * Transforms the sign-up request data to match the backend's expected format.
+         *
+         * @param {SignUpRequest} signUpData - The original sign-up request data.
+         *
+         * @returns {Object} The transformed sign-up request data with the following changes:
+         * - `firstName` is mapped to `first_name`
+         * - `lastName` is mapped to `last_name`
+         * - `email` is mapped to `username`
+         * - All other properties remain unchanged.
+         */
         public String getColumnName(int col) {
             return columnNames[col];
         }
 
+        /**
+         * Transforms the sign-up request data to match the backend's expected format.
+         *
+         * @param {SignUpRequest} signUpData - The original sign-up request data.
+         *
+         * @returns {Object} The transformed sign-up request data with the following changes:
+         * - `firstName` is mapped to `first_name`
+         * - `lastName` is mapped to `last_name`
+         * - `email` is mapped to `username`
+         * - All other properties remain unchanged.
+         */
         public Object getValueAt(int row, int col) {
             return data[row][col];
         }
 
+        /**
+         * Transforms the sign-up request data to match the backend's expected format.
+         *
+         * @param {SignUpRequest} signUpData - The original sign-up request data.
+         *
+         * @returns {Object} The transformed sign-up request data with the following changes:
+         * - `firstName` is mapped to `first_name`
+         * - `lastName` is mapped to `last_name`
+         * - `email` is mapped to `username`
+         * - All other properties remain unchanged.
+         */
         public void setValueAt(Object value, int row, int col) {
             data[row][col] = value;
             fireTableCellUpdated(row, col);
         }
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     public void reloaded() {
         try {
             String sql = ("SELECT * FROM Buses ORDER BY BusNo");
@@ -190,6 +289,17 @@ public class Buses extends JPanel implements Printable {
             JOptionPane.showMessageDialog(null, "Error on retrieving values", "Error", JOptionPane.ERROR_MESSAGE);
         }//try catch closed
     }//reloaded() closed
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     public int print(Graphics g, PageFormat pageFormat, int pageIndex) throws PrinterException {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.black);

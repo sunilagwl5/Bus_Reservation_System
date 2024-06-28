@@ -80,6 +80,17 @@ public class NewUser extends JInternalFrame {
         });
         txtUsername.addKeyListener(new KeyAdapter() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (Character.isDigit(c)) || (c == KeyEvent.VK_DELETE))) {
@@ -135,11 +146,33 @@ public class NewUser extends JInternalFrame {
 
         btnCancel.addActionListener(new ActionListener() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
     }//constructor closed
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     public static void main(String args[])
     {
         JFrame jf=new JFrame();

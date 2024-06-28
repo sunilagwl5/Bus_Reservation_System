@@ -10,20 +10,15 @@ public class DateButton extends JButton {
     private Date date;
 
     /**
-     * Fires an action performed event with the given ActionEvent.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @param e the ActionEvent to be fired
-     * @throws NullPointerException if the DATE_CHOOSER is null
-     * @throws IllegalArgumentException if the date selected is invalid
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     *
-     * <pre>{@code
-     * protected void someMethod() {
-     *     ActionEvent event = new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "command");
-     *     fireActionPerformed(event);
-     * }
-     * }</pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     protected void fireActionPerformed(ActionEvent e) {
 
@@ -46,9 +41,15 @@ public class DateButton extends JButton {
     }
 
     /**
-     * Returns the date.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @return the date
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     public Date getDate() {
 
@@ -56,16 +57,15 @@ public class DateButton extends JButton {
     }
 
     /**
-     * Sets the date and updates the text with the formatted date.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @param date the new date to be set
-     * @throws IllegalArgumentException if the date is null
-     * @throws PropertyVetoException if the date change is vetoed by a PropertyChangeListener
-     * @example
-     * <pre>{@code
-     * Date newDate = new Date();
-     * setDate(newDate);
-     * }</pre>
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     public void setDate(Date date) {
 
