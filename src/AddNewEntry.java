@@ -140,6 +140,7 @@ public class AddNewEntry extends JInternalFrame {
                     JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
                     e.consume();
                 }
+                
             }
         });
         txtFname.addKeyListener(new KeyAdapter() {
@@ -475,6 +476,7 @@ public class AddNewEntry extends JInternalFrame {
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
         
         if (returnVal == JFileChooser.APPROVE_OPTION) {
+            
             File dialog = fc.getSelectedFile();
             getPicture = dialog.getPath();
             lblEmplPic.setIcon(new ImageIcon(getPicture));
