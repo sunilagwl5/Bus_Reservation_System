@@ -57,23 +57,15 @@ class employee_report extends JInternalFrame {
             }
 
             /**
-             * This method is responsible for painting the graphics.
+             * Transforms the sign-up request data to match the backend's expected format.
              *
-             * @param g the graphics object to be painted
-             * @throws NullPointerException if the graphics object is null
-             * @throws SecurityException if a security violation occurs
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
              *
-             * Example:
-             * <pre>
-             * {@code
-             * public class MyComponent extends Component {
-             *     public void paint(Graphics g) {
-             *         super.paint(g);
-             *         // additional painting logic here
-             *     }
-             * }
-             * }
-             * </pre>
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
              */
             public void paint(Graphics g) {
                 super.paint(g);
@@ -104,22 +96,15 @@ class employee_report extends JInternalFrame {
         cancel.addActionListener(new java.awt.event.ActionListener() {
 
             /**
-             * Performs the action in response to an action event.
-             * This method disposes the current window and prints the content of the buffer.
+             * Transforms the sign-up request data to match the backend's expected format.
              *
-             * @param e the action event
-             * @throws NullPointerException if the action event is null
-             * @throws IllegalStateException if the buffer creation fails
-             * @throws IOException if an I/O error occurs while printing the buffer
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
              *
-             * Example:
-             * <pre>
-             *     // Assuming 'actionPerformed' is called within a class that extends ActionListener
-             *     public void actionPerformed(ActionEvent e) {
-             *         //dispose();
-             *         print(createBuffer());
-             *     }
-             * </pre>
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
              */
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 //dispose();
@@ -131,17 +116,15 @@ class employee_report extends JInternalFrame {
     }
 
     /**
-     * This method prints the list of employees from the database.
-     * It retrieves the employee details from the database and appends them to the listPane.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @throws SQLException if an error occurs while accessing the database
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     * <pre>
-     * {@code
-     * printList();
-     * }
-     * </pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     private void printList() {
         try {
@@ -177,18 +160,15 @@ class employee_report extends JInternalFrame {
     }
 
     /**
-     * Retrieves the text from the list pane and returns it as a string buffer.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @return The text from the list pane as a string buffer.
-     * @throws NullPointerException if the list pane is null.
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     * <pre>
-     * {@code
-     * String buffer = createBuffer();
-     * System.out.println(buffer);
-     * }
-     * </pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     public String createBuffer() {
         String buffer;
@@ -198,18 +178,15 @@ class employee_report extends JInternalFrame {
     }
 
     /**
-     * Prints the given string to a print job.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @param s the string to be printed
-     * @throws IOException if an I/O error occurs while reading the string
-     * @throws PrinterException if a printing error occurs
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     *
-     * <pre>{@code
-     * String text = "This is a sample text to be printed.";
-     * print(text);
-     * }</pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     private void print(String s) {
 

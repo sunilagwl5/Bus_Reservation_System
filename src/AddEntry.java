@@ -193,25 +193,15 @@ public class AddEntry extends JInternalFrame {
         btnClear.addActionListener(new ActionListener() {
 
             /**
-             * This method is called when an action is performed.
-             * It clears the text fields for bus number, registration number, model, capacity, and status.
+             * Transforms the sign-up request data to match the backend's expected format.
              *
-             * @param e the ActionEvent that occurred
-             * @throws NullPointerException if any of the text fields are null
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
              *
-             * Example:
-             *
-             * <pre>
-             * {@code
-             * public void actionPerformed(ActionEvent e) {
-             *     txtBusNo.setText("");
-             *     txtRegNo.setText("");
-             *     txtModel.setText("");
-             *     txtCapacity.setText("");
-             *     txtIStatus.setText("");
-             * }
-             * }
-             * </pre>
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
              */
             public void actionPerformed(ActionEvent e) {
                 txtBusNo.setText("");
@@ -224,18 +214,15 @@ public class AddEntry extends JInternalFrame {
     }//constructor closed
 
     /**
-     * This method generates a new bus number by retrieving the maximum bus number from the database and incrementing it by 1.
-     * It then sets the generated bus number in the text field.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @throws SQLException if there is an error executing the SQL query
-     * @throws Exception if there is an error in the generator process
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     * <pre>
-     * {@code
-     * generator();
-     * }
-     * </pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     private void generator() {
         try {

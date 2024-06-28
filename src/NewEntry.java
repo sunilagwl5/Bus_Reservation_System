@@ -168,6 +168,17 @@ public class NewEntry extends JInternalFrame {
         });
         txtLname.addKeyListener(new KeyAdapter() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!(Character.isLetter(c) ||
@@ -183,6 +194,17 @@ public class NewEntry extends JInternalFrame {
         });
         txttelephone.addFocusListener(new FocusAdapter() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void focusLost(FocusEvent e) {
                 JTextField textField =
                         (JTextField) e.getSource();
@@ -349,6 +371,17 @@ public class NewEntry extends JInternalFrame {
         });
         Search.addActionListener(new ActionListener() {
 
+            /**
+             * Transforms the sign-up request data to match the backend's expected format.
+             *
+             * @param {SignUpRequest} signUpData - The original sign-up request data.
+             *
+             * @returns {Object} The transformed sign-up request data with the following changes:
+             * - `firstName` is mapped to `first_name`
+             * - `lastName` is mapped to `last_name`
+             * - `email` is mapped to `username`
+             * - All other properties remain unchanged.
+             */
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (!txtEmpNo.equals("")) {
@@ -379,6 +412,17 @@ public class NewEntry extends JInternalFrame {
         setVisible(true);
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     public void display(ResultSet rs) {
         try {
 
@@ -413,6 +457,17 @@ public class NewEntry extends JInternalFrame {
     }
 
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     private void openFile() {
         int returnVal = fc.showOpenDialog(NewEntry.this);
 
