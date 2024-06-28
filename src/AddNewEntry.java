@@ -134,6 +134,7 @@ public class AddNewEntry extends JInternalFrame {
              */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
+                
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
                     getToolkit().beep();
                     JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
@@ -165,6 +166,7 @@ public class AddNewEntry extends JInternalFrame {
              */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
+                
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
                     getToolkit().beep();
                     JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
@@ -196,6 +198,7 @@ public class AddNewEntry extends JInternalFrame {
              */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
+                
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
                     getToolkit().beep();
                     JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
@@ -249,6 +252,7 @@ public class AddNewEntry extends JInternalFrame {
             public void focusLost(FocusEvent e) {
                 JTextField textField = (JTextField) e.getSource();
                 String content = textField.getText();
+                
                 if (content.length() != 0) {
                     try {
                         Integer.parseInt(content);
@@ -298,16 +302,19 @@ public class AddNewEntry extends JInternalFrame {
                     txtLname.requestFocus();
                     return;
                 }
+                
                 if (txttelephone.getText() == null || txttelephone.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Enter telphone number", "Error", JOptionPane.DEFAULT_OPTION);
                     txttelephone.requestFocus();
                     return;
                 }
+                
                 if (txtemail.getText() == null || txtemail.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Enter E-mail address", "Error", JOptionPane.DEFAULT_OPTION);
                     txtemail.requestFocus();
                     return;
                 }
+                
                 if (txtaddress.getText() == null || txtaddress.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Enter Address", "Error", JOptionPane.DEFAULT_OPTION);
                     txtaddress.requestFocus();
@@ -408,7 +415,7 @@ public class AddNewEntry extends JInternalFrame {
              * actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "ClearFields"));
              */
             public void actionPerformed(java.awt.event.ActionEvent e) {
-
+                
                 txtSname.setText("");
                 txtFname.setText("");
                 txtLname.setText("");
@@ -464,6 +471,7 @@ public class AddNewEntry extends JInternalFrame {
 
     private void openFile() {
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
+        
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File dialog = fc.getSelectedFile();
             getPicture = dialog.getPath();
