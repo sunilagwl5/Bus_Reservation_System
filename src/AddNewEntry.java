@@ -199,7 +199,6 @@ public class AddNewEntry extends JInternalFrame {
              */
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                
                 if (!(Character.isLetter(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_DELETE))) {
                     getToolkit().beep();
                     JOptionPane.showMessageDialog(null, "This Field Only acept text", "Error", JOptionPane.DEFAULT_OPTION);
