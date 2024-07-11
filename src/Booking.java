@@ -288,7 +288,6 @@ public class Booking extends JInternalFrame {
                 combo1.addItem(rst.getString(1));
                 combo8.addItem(rst.getString(2));
             }
-
         } catch (Exception n) {
             n.printStackTrace();
         }
@@ -386,7 +385,6 @@ public class Booking extends JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Record Not found", "ERROR",
                         JOptionPane.DEFAULT_OPTION);
             }
-
         } catch (SQLException sqlex) {
             sqlex.printStackTrace();
         }
