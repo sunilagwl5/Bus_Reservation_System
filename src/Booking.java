@@ -186,6 +186,8 @@ public class Booking extends JInternalFrame {
 
         button6.addActionListener(new ActionListener() {
 
+            
+
             public void actionPerformed(ActionEvent e) {
                 Show_Booked frm= new Show_Booked();
                 MDIWindow.desktop.add(frm);
