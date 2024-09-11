@@ -278,7 +278,6 @@ public class AddRoute extends JInternalFrame {
 
 
     private void generator() {
-
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
