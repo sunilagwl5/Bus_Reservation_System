@@ -277,6 +277,21 @@ public class AddRoute extends JInternalFrame {
 
 
 
+    /**
+     * Generates a new route number by querying the database for the current maximum route number,
+     * increments it by one, and updates the text field with the new route number.
+     *
+     * <p>This method connects to the database and executes a SQL query to retrieve the current route numbers.
+     * It processes the result set to find the maximum route number, increments it, and sets the updated value
+     * in the text field {@code txtRouteNo}.</p>
+     *
+     * <p>Note: This method is intended for internal use only and does not return any value.</p>
+     *
+     * @throws SQLException if a database access error occurs or the SQL statement is invalid.
+     * @throws NullPointerException if {@code DBConnection.getDBConnection()} returns null or if 
+     *         {@code txtRouteNo} is not initialized.
+     * @throws Exception for any other unexpected errors that may occur during execution.
+     */
     private void generator() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
