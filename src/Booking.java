@@ -129,6 +129,7 @@ public class Booking extends JInternalFrame {
                 JTextField textField =
                         (JTextField) e.getSource();
                 String content = textField.getText();
+                
                 if (content.length() != 0) {
                     try {
                         Integer.parseInt(content);
@@ -147,14 +148,12 @@ public class Booking extends JInternalFrame {
 
             public void actionPerformed(ActionEvent e) {
                 book();
-
             }
         });
 
         button4.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-
                 dispose();
             }
         });
@@ -185,9 +184,7 @@ public class Booking extends JInternalFrame {
         });
 
         button6.addActionListener(new ActionListener() {
-
             
-
             public void actionPerformed(ActionEvent e) {
                 Show_Booked frm= new Show_Booked();
                 MDIWindow.desktop.add(frm);
@@ -217,14 +214,12 @@ public class Booking extends JInternalFrame {
 
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 combo3.setSelectedIndex(combo2.getSelectedIndex());
-
             }
         });
         combo3.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 combo2.setSelectedIndex(combo3.getSelectedIndex());
-
             }
         });
 
@@ -232,7 +227,6 @@ public class Booking extends JInternalFrame {
 
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 combo1.setSelectedIndex(combo8.getSelectedIndex());
-
             }
         });
         combo7.addActionListener(new java.awt.event.ActionListener() {
@@ -281,6 +275,7 @@ public class Booking extends JInternalFrame {
     }
 
     private void setCbx() {
+        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -296,6 +291,7 @@ public class Booking extends JInternalFrame {
     }
 
     private void setCombo() {
+        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -313,6 +309,7 @@ public class Booking extends JInternalFrame {
     }
 
     private void amount() {
+        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -327,6 +324,7 @@ public class Booking extends JInternalFrame {
     }
 
     private void passroute() {
+        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -343,6 +341,7 @@ public class Booking extends JInternalFrame {
     }
 
     private void setroute() {
+        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -390,7 +389,6 @@ public class Booking extends JInternalFrame {
         } catch (SQLException sqlex) {
             sqlex.printStackTrace();
         }
-
     }
 
 
