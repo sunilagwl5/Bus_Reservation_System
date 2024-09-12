@@ -275,6 +275,26 @@ public class Booking extends JInternalFrame {
 
     }
 
+    /**
+     * Sets the items for the combo boxes based on the selected route name.
+     * This method retrieves bus registration numbers and departure times 
+     * from the database for the selected route and populates the respective 
+     * combo boxes with this information.
+     *
+     * <p>
+     * The method establishes a connection to the database and executes a 
+     * SQL query to fetch the bus registration numbers and departure times 
+     * from the "Schedules" table where the route name matches the selected 
+     * item in the combo box. The results are then added to two combo boxes.
+     * </p>
+     *
+     * @throws SQLException if a database access error occurs or the SQL 
+     *                      statement is not valid.
+     * @throws NullPointerException if the selected item in the combo box 
+     *                              is null.
+     * @throws Exception for any other unexpected errors that may occur 
+     *                   during the execution of this method.
+     */
     private void setCbx() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -290,6 +310,21 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Sets the items in the combo boxes based on the available passengers 
+     * who have not booked their tickets to the selected destination.
+     * <p>
+     * This method retrieves data from the database, specifically the 
+     * passenger number and name for passengers whose booking status is 
+     * 'not Booked' and whose destination matches the selected item in 
+     * the combo box. The retrieved data is then added to two combo boxes.
+     * </p>
+     *
+     * @throws SQLException if a database access error occurs or this method 
+     *                      is called on a closed connection.
+     * @throws NullPointerException if the combo box selection is null or 
+     *                              if any of the combo boxes are not initialized.
+     */
     private void setCombo() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -307,6 +342,16 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Retrieves the fare charged for a specific route and populates a combo box with the results.
+     * 
+     * This method executes a SQL query to fetch the fare charged from the database for the 
+     * selected route name from a combo box. The results are then added to another combo box.
+     * 
+     * @throws SQLException if a database access error occurs or the SQL statement is invalid.
+     * @throws NullPointerException if the selected item from the combo box is null.
+     * @throws Exception for any other unexpected errors that may occur during the execution of the method.
+     */
     private void amount() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -321,6 +366,17 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Retrieves route names from the Schedules database table and adds them to a combo box.
+     * 
+     * <p>This method establishes a connection to the database, executes a query to fetch
+     * route names, and populates a combo box with the retrieved values. It handles any exceptions
+     * that may occur during the database operations.</p>
+     *
+     * @throws SQLException if a database access error occurs or the SQL statement is invalid.
+     * @throws NullPointerException if the combo box is null or if the database connection is not established.
+     * @throws Exception for any other unexpected errors that may occur during execution.
+     */
     private void passroute() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -337,6 +393,21 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Sets the route by retrieving the depot and destination from the database
+     * based on the selected route name in the combo box.
+     * <p>
+     * This method executes a SQL query to fetch the depot and destination 
+     * associated with the selected route name. The results are then added 
+     * to two combo boxes for further use in the application.
+     * </p>
+     *
+     * @throws SQLException if a database access error occurs or the SQL statement 
+     *                      is invalid.
+     * @throws NullPointerException if the selected item in the combo box is null.
+     * @throws Exception for any other unexpected errors that may occur during 
+     *                   the execution of the method.
+     */
     private void setroute() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
