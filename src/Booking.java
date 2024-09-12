@@ -147,6 +147,7 @@ public class Booking extends JInternalFrame {
         button1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
+                
                 book();
             }
         });
@@ -275,7 +276,6 @@ public class Booking extends JInternalFrame {
     }
 
     private void setCbx() {
-        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -291,7 +291,6 @@ public class Booking extends JInternalFrame {
     }
 
     private void setCombo() {
-        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -309,7 +308,6 @@ public class Booking extends JInternalFrame {
     }
 
     private void amount() {
-        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -324,7 +322,6 @@ public class Booking extends JInternalFrame {
     }
 
     private void passroute() {
-        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -341,7 +338,6 @@ public class Booking extends JInternalFrame {
     }
 
     private void setroute() {
-        
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
