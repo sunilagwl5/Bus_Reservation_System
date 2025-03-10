@@ -439,18 +439,15 @@ public class AddNewEntry extends JInternalFrame {
     }
 
     /**
-     * This method generates a new employee number by retrieving the last employee number from the database and incrementing it by 1.
-     * It updates the text field with the new employee number.
+     * Transforms the sign-up request data to match the backend's expected format.
      *
-     * @throws SQLException if a database access error occurs or this method is called on a closed connection
-     * @throws Exception if an error occurs during the operation
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
      *
-     * Example:
-     * <pre>
-     * {@code
-     * generator();
-     * }
-     * </pre>
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
      */
     private void generator() {
 
@@ -472,6 +469,17 @@ public class AddNewEntry extends JInternalFrame {
         
     }
 
+    /**
+     * Transforms the sign-up request data to match the backend's expected format.
+     *
+     * @param {SignUpRequest} signUpData - The original sign-up request data.
+     *
+     * @returns {Object} The transformed sign-up request data with the following changes:
+     * - `firstName` is mapped to `first_name`
+     * - `lastName` is mapped to `last_name`
+     * - `email` is mapped to `username`
+     * - All other properties remain unchanged.
+     */
     private void openFile() {
         
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
