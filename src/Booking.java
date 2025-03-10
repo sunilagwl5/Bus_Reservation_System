@@ -275,6 +275,13 @@ public class Booking extends JInternalFrame {
 
     }
 
+    /**
+     * Sets the values for combo boxes based on the selected route name.
+     * Retrieves Bus_RegNo and Dept_Time from the Schedules table in the database
+     * for the selected route name and populates combo1 and combo8 accordingly.
+     * 
+     * @throws SQLException if there is an error executing the SQL query
+     */
     private void setCbx() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -353,6 +360,12 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Displays the information from the ResultSet in the UI components.
+     * 
+     * @param rs The ResultSet containing the data to be displayed.
+     * @throws SQLException if a database access error occurs or this method is called on a closed result set.
+     */
     public void display(ResultSet rs) {
         try {
             boolean recordNumber = rs.next();
