@@ -125,6 +125,18 @@ public class Booking extends JInternalFrame {
         //amount();
         text1.addFocusListener(new FocusAdapter() {
 
+            /**
+             * Invoked when a component loses focus.
+             *
+             * This method retrieves the text from a JTextField and attempts to parse it as an integer.
+             * If the text is not empty and cannot be parsed as an integer, it will display an error message
+             * and reset the text field.
+             *
+             * @param e the FocusEvent that indicates the component has lost focus
+             * 
+             * @throws NumberFormatException if the content of the text field cannot be parsed as an integer.
+             * This exception is caught within the method, and an error message is displayed to the user.
+             */
             public void focusLost(FocusEvent e) {
                 JTextField textField =
                         (JTextField) e.getSource();
@@ -275,6 +287,23 @@ public class Booking extends JInternalFrame {
 
     }
 
+    /**
+     * Sets the items for the combo boxes based on the selected route name.
+     * This method retrieves bus registration numbers and departure times from the 
+     * Schedules table in the database and populates the respective combo boxes.
+     *
+     * <p>
+     * The method establishes a connection to the database and executes a SQL query 
+     * to fetch the bus registration numbers and departure times for the selected 
+     * route. The results are then added to the combo boxes for user selection.
+     * </p>
+     *
+     * @throws SQLException if a database access error occurs or the SQL statement 
+     *                      is not valid.
+     * @throws NullPointerException if the selected item from combo7 is null.
+     * @throws Exception for any other unexpected errors that may occur during 
+     *                   database access or processing.
+     */
     private void setCbx() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -290,6 +319,22 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Sets the items in the combo boxes based on the available passengers 
+     * who have not booked a ticket to the selected destination.
+     * 
+     * This method retrieves data from the database, specifically the 
+     * passenger number and name, for passengers whose booking status 
+     * is 'not Booked' and whose destination matches the selected item 
+     * in the combo box. The retrieved data is then added to two combo 
+     * boxes for further use in the application.
+     * 
+     * @throws SQLException if a database access error occurs or 
+     *                      this method is called on a closed connection.
+     * @throws NullPointerException if the selected item in combo5 is null.
+     * @throws Exception for any other exceptions that may occur during 
+     *                   the execution of the method.
+     */
     private void setCombo() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -307,6 +352,17 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Retrieves the fare charged for a specific route and populates a combo box with the results.
+     * <p>
+     * This method establishes a connection to the database, executes a query to fetch the fare charged
+     * for the route selected in the combo box, and adds each fare retrieved to another combo box.
+     * </p>
+     * 
+     * @throws SQLException if a database access error occurs or the SQL statement is invalid.
+     * @throws NullPointerException if the selected item in the combo box is null.
+     * @throws Exception for any other unexpected errors that may occur during database operations.
+     */
     private void amount() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -321,6 +377,18 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Retrieves route names from the Schedules database and adds them to a combo box.
+     *
+     * This method establishes a connection to the database and executes a SQL query
+     * to fetch all route names. Each route name is then added to the combo box 
+     * for user selection.
+     *
+     * @throws SQLException if a database access error occurs or the SQL statement 
+     *         returns anything other than a single ResultSet object.
+     * @throws NullPointerException if the combo box is null or if the database 
+     *         connection cannot be established.
+     */
     private void passroute() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -337,6 +405,19 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Sets the route by populating the combo boxes with data retrieved from the database.
+     * 
+     * This method queries the database for the Depot and Destination associated with the 
+     * selected RouteName from the combo7 component. The results are then added to 
+     * combo4 and combo5 respectively.
+     * 
+     * @throws SQLException if a database access error occurs or the SQL statement is 
+     *         invalid. This exception is thrown when there is an issue with executing 
+     *         the query or retrieving data from the ResultSet.
+     * @throws NullPointerException if any of the components (combo7, combo4, or combo5) 
+     *         are null when this method is called.
+     */
     private void setroute() {
         try {
             ResultSet rst = DBConnection.getDBConnection().createStatement(
@@ -353,6 +434,22 @@ public class Booking extends JInternalFrame {
         }
     }
 
+    /**
+     * Displays the details of a booking from the provided ResultSet.
+     * 
+     * This method retrieves booking information from the given ResultSet and updates
+     * the corresponding UI components with the retrieved values. If no records are found,
+     * it shows an error message dialog indicating that no record was found.
+     *
+     * @param rs the ResultSet containing booking information. It is expected to have
+     *           at least 10 columns corresponding to the booking details.
+     * 
+     * @throws SQLException if a database access error occurs or this method is called
+     *                      on a closed ResultSet. This exception is caught and printed
+     *                      to the standard error stream.
+     * 
+     * @throws NullPointerException if the provided ResultSet is null.
+     */
     public void display(ResultSet rs) {
         try {
             boolean recordNumber = rs.next();
