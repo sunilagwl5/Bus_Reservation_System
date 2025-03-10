@@ -439,18 +439,10 @@ public class AddNewEntry extends JInternalFrame {
     }
 
     /**
-     * This method generates a new employee number by retrieving the last employee number from the database and incrementing it by 1.
-     * It updates the text field with the new employee number.
-     *
-     * @throws SQLException if a database access error occurs or this method is called on a closed connection
-     * @throws Exception if an error occurs during the operation
-     *
-     * Example:
-     * <pre>
-     * {@code
-     * generator();
-     * }
-     * </pre>
+     * This method generates employee numbers by incrementing the existing employee number retrieved from the database.
+     * It updates the employee number in the text field.
+     * 
+     * @throws SQLException if there is an error executing the SQL query
      */
     private void generator() {
 
@@ -472,6 +464,11 @@ public class AddNewEntry extends JInternalFrame {
         
     }
 
+    /**
+     * Opens a file dialog to select a file and display the selected file's image in a label.
+     * 
+     * @throws NullPointerException if AddNewEntry instance is null
+     */
     private void openFile() {
         
         int returnVal = fc.showOpenDialog(AddNewEntry.this);
