@@ -118,6 +118,7 @@ public class Route extends JPanel {
     }
 
     public static int getSelectedRow() {
+        
         jTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         javax.swing.ListSelectionModel rowSel = jTable.getSelectionModel();
@@ -140,6 +141,7 @@ public class Route extends JPanel {
 
     class AbstractTable extends javax.swing.table.AbstractTableModel {
 
+        
         private String[] columnNames = {"RouteNo", "Route Name", "From", "To",
             "Distance", "Fare_Charged"
         };
@@ -170,6 +172,7 @@ public class Route extends JPanel {
 
     public void load_jTable() {
 
+        
         try {
             Statement statement = DBConnection.getDBConnection().createStatement();
             {
