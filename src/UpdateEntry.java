@@ -214,6 +214,9 @@ public class UpdateEntry extends JInternalFrame {
         });
         btnSearch.addActionListener(new ActionListener() {
 
+            /**
+             * Executes a query to find buses by bus number and displays the results.
+             */
             public void actionPerformed(ActionEvent e) {
                 
                 try {
@@ -239,6 +242,9 @@ public class UpdateEntry extends JInternalFrame {
         
     }//constructor closed
 
+    /**
+     * Displays bus records from a ResultSet in various text fields and shows an error message if no record is found.
+     */
     public void display(ResultSet rs) {
         try {
             //rs.next();
