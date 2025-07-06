@@ -215,6 +215,7 @@ public class UpdateEntry extends JInternalFrame {
         btnSearch.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
+                
                 try {
                     if (!txtBusNo.equals("")) {
 
@@ -241,7 +242,6 @@ public class UpdateEntry extends JInternalFrame {
     public void display(ResultSet rs) {
         try {
             //rs.next();
-
             boolean recordNumber = rs.next();
             if (recordNumber) {
                 regNo = rs.getString(1);
